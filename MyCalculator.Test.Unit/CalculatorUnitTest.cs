@@ -65,6 +65,30 @@ namespace MyCalculator.Test.Unit
         }
         //*******************//
 
+        //*** Overloaded Add ***//
+        [TestCase(2, 2)]
+        [TestCase(2, 4)]
+        [TestCase(4, 8)]
+        [TestCase(8, 16)]
 
+        public void Overloaded_Addition_Test(double input, double result)
+        {
+            Calculator uut = new Calculator();
+            Assert.That(uut.Add(input), Is.EqualTo(result));
+        }
+        //**********************//
+
+        //*** Overloaded Sub ***//
+        [TestCase(2, -2)]
+        [TestCase(2, -4)]
+        [TestCase(4, -8)]
+        [TestCase(8, -16)]
+
+        public void Overloaded_Subtraction_Test(double input, double result)
+        {
+            Calculator uut = new Calculator();
+            Assert.That(uut.Subtract(input), Is.EqualTo(result));
+        }
+        //**********************//
     }
 }
