@@ -67,10 +67,6 @@ namespace MyCalculator.Test.Unit
 
         //*** Overloaded Add ***//
         [TestCase(2, 2)]
-        [TestCase(2, 4)]
-        [TestCase(4, 8)]
-        [TestCase(8, 16)]
-
         public void Overloaded_Addition_Test(double input, double result)
         {
             Calculator uut = new Calculator();
@@ -140,16 +136,24 @@ namespace MyCalculator.Test.Unit
            
         }
         //*** Overloaded Sub ***//
-        [TestCase(2, -2)]
-        [TestCase(2, -4)]
-        [TestCase(4, -8)]
-        [TestCase(8, -16)]
-
+        [TestCase(2, 2)]
         public void Overloaded_Subtraction_Test(double input, double result)
         {
             Calculator uut = new Calculator();
             Assert.That(uut.Subtract(input), Is.EqualTo(result));
         }
         //**********************//
+
+
+        [TestCase(0)]
+        [TestCase(1)]
+        [TestCase(-1)]
+        public void Clear_AccumulatorGetsClearedNoMatterPreviousVal_AlwaysHolds0(double input)
+        {
+            var calc = new Calculator();
+            calc.Add(0, input); //Put input in Accumulator
+            calc.Clear();           //Clear Accumulator = 0
+            Assert.That(calc.Accumulator, Is.EqualTo(0));
+        }
     }
 }

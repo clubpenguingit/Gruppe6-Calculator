@@ -14,6 +14,11 @@ namespace MyCalculator
         }
 
         public double Accumulator {  get; private set; }  //Accumulator property. Always holds return value of latest function call
+
+        public void Clear()
+        {
+            Accumulator = 0.0;
+        }
         public double Add(double a, double b)
         {
             Accumulator = a + b;
