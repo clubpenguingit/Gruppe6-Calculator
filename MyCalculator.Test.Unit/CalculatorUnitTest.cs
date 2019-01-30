@@ -66,5 +66,46 @@ namespace MyCalculator.Test.Unit
         //*******************//
 
 
+        //*** Accumulator Tets***//
+        [Test]
+        public void Accumulator_ValueIsZeroUponNewCalculator_true()
+        {
+            Calculator calc = new Calculator();
+            Assert.That(calc.Accumulator, Is.EqualTo(0.0));
+        }
+
+        [Test]
+        public void Accumulator_Add2And2_AccumulatorHolds4()
+        {
+            var calc = new Calculator();
+            calc.Add(2, 2);
+            Assert.That(calc.Accumulator, Is.EqualTo(4));
+        }
+
+        [Test]
+        public void Accumulator_Substract2From4_AccumulatorHolds2()
+        {
+            Calculator c = new Calculator();
+            c.Subtract(4, 2);
+            Assert.That(c.Accumulator, Is.EqualTo(2));
+        }
+
+        [Test]
+        public void Accumulator_Multiply3and3_AccumulatorHolds9()
+        {
+            Calculator c = new Calculator();
+            c.Multiply(3, 3);
+            Assert.That(c.Accumulator, Is.EqualTo(c.Multiply(3,3)));
+        }
+
+        [Test]
+        public void Accumulator_2ToPowerOf3_AccumulatorHolds8()
+        {
+            Calculator c = new Calculator();
+            c.Power(2, 3);
+            Assert.That(c.Accumulator, Is.EqualTo(8));
+        }
+
+
     }
 }
