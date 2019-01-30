@@ -25,6 +25,13 @@ namespace MyCalculator.Test.Unit
         }
 
         [Test]
+        public void Add_Add2and0_Returns2()
+        {
+            Calculator uut = new Calculator();
+            Assert.That(uut.Add(2, 0), Is.EqualTo(2));
+        }
+
+        [Test]
         public void Subtract_Subtract2From4_Return2()
         {
             var uut = new Calculator();
