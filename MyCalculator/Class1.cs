@@ -28,6 +28,24 @@ namespace MyCalculator
         {
             return Math.Pow(x, exp);
         }
+
+
+        public double Power(double exp)
+        {
+            return Math.Pow(Accumulator, exp);
+        }
+
+        public double Multiply(double multiplier)
+        {
+            return Accumulator * multiplier;
+        }
+
+        public double Divide(double divisor)
+        {
+            return (Accumulator / divisor);
+        }
+
+
     }
 
 }
