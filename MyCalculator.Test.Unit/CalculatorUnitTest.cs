@@ -18,6 +18,13 @@ namespace MyCalculator.Test.Unit
         }
 
         [Test]
+        public void Add_AddMinus2AndMinus2_ReturnsMinus4()
+        {
+            var uut = new Calculator();
+            Assert.That(uut.Add(-2,-2), Is.EqualTo(-4));
+        }
+
+        [Test]
         public void Add_AddMinus2And4_returns2()
         {
             var uut = new Calculator();
@@ -31,11 +38,13 @@ namespace MyCalculator.Test.Unit
             Assert.That(uut.Add(2, 0), Is.EqualTo(2));
         }
 
-        [Test]
-        public void Subtract_Subtract2From4_Return2()
+        [TestCase(2,2,0)]
+        [TestCase(-2,2,-4)]
+        [TestCase(-2,-2,0)]
+        public void Subtract_MultipleSubstracts_AllCorrect(double a,double b,double result)
         {
             var uut = new Calculator();
-            Assert.That(uut.Subtract(4,2), Is.EqualTo(2));
+            Assert.That(uut.Subtract(a,b), Is.EqualTo(result));
         }
 
         //*** Multipy tests ***//
