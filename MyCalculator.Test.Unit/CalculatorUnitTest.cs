@@ -43,6 +43,7 @@ namespace MyCalculator.Test.Unit
         [TestCase(0,1,0)] // 0 * 1 = 0
         [TestCase(-1,5,-5)] // -1 *5 = -5
         [TestCase(-2,-2,4)] // -2*-2 = 4
+        [TestCase(-4,5,0)]
         public void Multiply_MultipleInputs_AllCorrect(double a, double b, double result)
         {
             Calculator uut = new Calculator();
