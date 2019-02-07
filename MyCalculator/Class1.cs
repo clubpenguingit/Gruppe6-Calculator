@@ -58,17 +58,20 @@ namespace MyCalculator
 
         public double Power(double exp)
         {
-            return Math.Pow(Accumulator, exp);
+            Accumulator= Math.Pow(Accumulator, exp);
+            return Accumulator;
         }
 
         public double Multiply(double multiplier)
         {
-            return Accumulator * multiplier;
+            Accumulator = Accumulator * multiplier;
+            return Accumulator;
         }
 
         public double Divide(double divisor)
         {
-            return (Accumulator / divisor);
+            Accumulator = (Accumulator / divisor);
+            return Accumulator;
         }
 
 

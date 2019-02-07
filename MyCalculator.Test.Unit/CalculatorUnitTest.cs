@@ -111,18 +111,59 @@ namespace MyCalculator.Test.Unit
         public void Accumulator_Multiply3and3_AccumulatorHolds9()
         {
             Calculator c = new Calculator();
-            c.Multiply(3, 3);
-            Assert.That(c.Accumulator, Is.EqualTo(c.Multiply(3,3)));
+            c.Add(3);
+            c.Multiply(3);
+            Assert.That(c.Accumulator, Is.EqualTo(9));
         }
 
         [Test]
         public void Accumulator_2ToPowerOf3_AccumulatorHolds8()
         {
             Calculator c = new Calculator();
-            c.Power(2, 3);
+            c.Add(2);
+            c.Power(3);
             Assert.That(c.Accumulator, Is.EqualTo(8));
         }
 
+        [Test]
+        public void Accumulator_Multiply0and0_AccumulatorHolds0()
+        {
+            Calculator c = new Calculator();
+            c.Add(0);
+            c.Multiply(0);
+            Assert.That(c.Accumulator, Is.EqualTo(0));
+        }
+
+        [Test]
+        public void Accumulator_Multiply2and2_AccumulatorHolds8()
+        {
+            Calculator c = new Calculator();
+            c.Add(2, 2);
+            c.Multiply(2);
+            Assert.That(c.Accumulator, Is.EqualTo(8));
+        }
+
+        [TestCase(1, 0, 1)]
+        [TestCase(2, 2, 4)]
+        [TestCase(0, 0, 1)]
+        public void Accumulator_PowerTests(double a, double b, double result)
+        {
+            Calculator c = new Calculator();
+            c.Add(a);
+            c.Power(b);
+            Assert.That(c.Accumulator, Is.EqualTo(result));
+        }
+
+        [TestCase(2, 2, 1)]
+        [TestCase(-2, 2, -1)]
+        [TestCase(3, 2, 1.5)]
+        public void Accumulator_DivideTests(double a, double b, double result)
+        {
+            Calculator c = new Calculator();
+            c.Add(a);
+            c.Divide(b);
+            Assert.That(c.Accumulator, Is.EqualTo(result));
+        }
 
         //*** TEST AF DIVISION ***///
         [TestCase(1,2,0.5)]
